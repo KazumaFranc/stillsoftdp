@@ -1,0 +1,128 @@
+<% layout('layouts/main') -%>
+
+
+
+<section class="partner-intro">
+    <div class="container">
+        <div class="intro-content">
+            <h2>Станьте партнером Стилсофт</h2>
+            <p>Присоединяйтесь к нашей партнерской программе и получите доступ к эксклюзивным условиям, обучению и поддержке для развития вашего бизнеса.</p>
+            <a href="#partner-form" class="btn btn-primary">Стать партнером</a>
+        </div>
+        <div class="intro-image">
+            <img src="/images/gtt/partner.jpg" alt="Партнерство">
+        </div>
+    </div>
+</section>
+
+<section class="partnership-types">
+    <div class="container">
+        <h2 class="section-title">Типы партнерства</h2>
+        <div class="partnership-tabs">
+            <div class="tab-buttons">
+                <% partnershipTypes.forEach(function(type, index) { %>
+                <button class="tab-btn <%= index === 0 ? 'active' : '' %>" data-tab="<%= type.id %>">
+                    <%= type.name.split('-')[1] || type.name %>
+                </button>
+                <% }) %>
+            </div>
+
+            <% partnershipTypes.forEach(function(type, index) { %>
+            <div class="tab-content <%= index === 0 ? 'active' : '' %>" id="<%= type.id %>">
+                <div class="tab-content-inner">
+                    <div class="tab-image">
+                        <img src="<%= type.image %>" alt="<%= type.name %>">
+                    </div>
+                    <div class="tab-text">
+                        <h3><%= type.name %></h3>
+                        <p><%= type.description %></p>
+                        <ul>
+                            <% type.benefits.forEach(function(benefit) { %>
+                            <li><i class="fas fa-check"></i> <%= benefit %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<section id="partner-form" class="partner-form-section">
+    <div class="container">
+        <h2 class="section-title">Стать партнером</h2>
+        <form class="partner-form" id="partner-application-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company">Компания *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Контактное лицо *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type">Тип партнерства *</label>
+                <select id="type" name="type" required>
+                    <option value="">Выберите тип партнерства</option>
+                    <% partnershipTypes.forEach(function(type) { %>
+                    <option value="<%= type.id %>"><%= type.name %></option>
+                    <% }) %>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">О вашей компании и опыте</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                <div class="form-note">
+                    Нажимая кнопку, вы соглашаетесь с условиями обработки данных
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+document.getElementById('partner-application-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    try {
+        const response = await fetch('/partner/apply', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(result.message);
+            this.reset();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert('Произошла ошибка при отправке заявки');
+    }
+});
+</script>

@@ -1,0 +1,42 @@
+<% layout('layouts/main') -%>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Новости компании</h1>
+        <p>Свежие события и анонсы</p>
+    </div>
+</section>
+
+<section class="news">
+    <div class="container">
+        <div class="news-grid">
+            <% news.forEach(function(item) { %>
+            <article class="news-item">
+                <div class="news-image">
+                    <img src="<%= item.image %>" alt="<%= item.title %>">
+                    <div class="news-date">
+                        <span class="day"><%= new Date(item.date).getDate() %></span>
+                        <span class="month">
+                            <%= new Date(item.date).toLocaleDateString('ru', { month: 'short' }) %>
+                        </span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3><%= item.title %></h3>
+                    <p><%= item.excerpt %></p>
+                    <a href="/news/<%= item.id %>" class="read-more">
+                        Читать далее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</section>

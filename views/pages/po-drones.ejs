@@ -1,0 +1,161 @@
+<% layout('layouts/main') -%>
+
+<section class="solution-hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/drons/dostavka-gruzov-dronami-3.jpg')">
+    <div class="container">
+        <h1>Разработка ПО для беспилотных устройств</h1>
+        <p>Создаем интеллектуальные системы управления для дронов, роботов и автономных транспортных средств</p>
+    </div>
+</section>
+
+<section class="solution-content">
+    <div class="container">
+        <div class="solution-description">
+            <h2>Наш подход к разработке ПО для беспилотников</h2>
+            <p>Мы разрабатываем специализированное программное обеспечение для беспилотных летательных аппаратов, наземных роботов и морских дронов, обеспечивая:</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="/images/drons/fced24483037f82cdd29cfe40a82872e.jpg" alt="Автономность">
+                    <h3>Полную автономность</h3>
+                    <p>Системы навигации и принятия решений без вмешательства оператора</p>
+                </div>
+                <div class="feature-card">
+                    <img src="/images/drons/b36188ad1eb4e5d433ec8720be1e9699.jpg" alt="Искусственный интеллект">
+                    <h3>ИИ-анализ данных</h3>
+                    <p>Обработка сенсорных данных в реальном времени с помощью нейросетей</p>
+                </div>
+                <div class="feature-card">
+                    <img src="/images/drons/ee36000384b3ba02fdbf65f558765814.jpg" alt="Безопасность">
+                    <h3>Безопасность</h3>
+                    <p>Защищенные протоколы связи и системы аварийного управления</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-process">
+            <h2>Процесс разработки</h2>
+            <div class="process-steps">
+                <div class="step">
+                <span class="step-number">1</span>
+                <h3>Анализ требований</h3>
+                <p>Определение технических характеристик, целей и условий эксплуатации</p>
+                </div>
+                <div class="step">
+                <span class="step-number">2</span>
+                <h3>Проектирование архитектуры</h3>
+                <p>Создание модульной структуры ПО с учетом аппаратных ограничений</p>
+                </div>
+                <div class="step">
+                <span class="step-number">3</span>
+                <h3>Разработка ядра системы</h3>
+                <p>Реализация алгоритмов навигации, управления и компьютерного зрения</p>
+                </div>
+                <div class="step">
+                <span class="step-number">4</span>
+                <h3>Тестирование и отладка</h3>
+                <p>Стендовые и полевые испытания в различных условиях</p>
+                </div>
+                <div class="step">
+                <span class="step-number">5</span>
+                <h3>Сертификация</h3>
+                <p>Подготовка документации и прохождение необходимых сертификаций</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-technologies">
+            <h2>Используемые технологии</h2>
+            <div class="tech-list">
+                <div class="tech-item">
+                <img src="images/drons/ros.png" alt="ROS">
+                <p>Robot Operating System (ROS)</p>
+                </div>
+                <div class="tech-item">
+                <img src="images/drons/opencv-logo.png" alt="OpenCV">
+                <p>OpenCV</p>
+                </div>
+                <div class="tech-item">
+                <img src="images/drons/0_aDkVHN_A9WSbWVlI.png" alt="TensorFlow">
+                <p>TensorFlow Lite</p>
+                </div>
+                <div class="tech-item">
+                <img src="images/drons/1743799.png" alt="Gazebo">
+                <p>Gazebo Simulator</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-form">
+            <h2>Оставить заявку на разработку</h2>
+            <form id="drone-dev-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Компания</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="project-type">Тип проекта *</label>
+                    <select id="type" name="type" required>
+                        <option value="">Выберите тип проекта</option>
+                        <% droneTypes.forEach(function(type) { %>
+                        <option value="<%= type.name %>"><%= type.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание проекта *</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('drone-dev-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    try {
+        const response = await fetch('/drone/apply', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert('Произошла ошибка при отправке заявки');
+    }
+});
+</script>

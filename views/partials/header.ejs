@@ -1,0 +1,47 @@
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/">
+                <img src="/images/style/toplogo.png" alt="Логотип Стилсофт">
+            </a>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li class="<%= currentPage === 'home' ? 'active' : '' %>">
+                    <a href="/">Главная</a>
+                </li>
+                <li class="<%= currentPage === 'about' ? 'active' : '' %>">
+                    <a href="/about">О нас</a>
+                </li>
+                <li class="<%= currentPage === 'partner' ? 'active' : '' %>">
+                    <a href="/partner">Как стать партнёром</a>
+                </li>
+                <li class="<%= currentPage === 'po-drones' ? 'active' : '' %>">
+                    <a href="/drone">Заявки</a>
+                </li>
+                <li class="<%= currentPage === 'services' ? 'active' : '' %>">
+                    <a href="/services">Услуги</a>
+                </li>
+                <li class="<%= currentPage === 'contacts' ? 'active' : '' %>">
+                    <a href="/contacts">Контакты</a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <!-- Переключатель для дальтоников -->
+            <button class="accessibility-btn" id="colorblind-toggle" title="Режим для дальтоников">
+                <i class="fas fa-eye"></i>
+            </button>
+            
+            <!-- Мобильное меню -->
+            <button class="mobile-menu-toggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>

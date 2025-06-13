@@ -1,0 +1,85 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="/about">О нас</a></li>
+                    <li><a href="/news">Новости</a></li>
+                    <li><a href="/po-drones">Заявки</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Услуги</h3>
+                <ul>
+                    <li><a href="/services">Все услуги</a></li>
+                    <li><a href="/services#ksbo">КСБО</a></li>
+                    <li><a href="/services#special">Специальная техника</a></li>
+                    <li><a href="/services#ais">АИС</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <address>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Ставрополь ул. Васильковая, 29, а/я 12</p>
+                    <p><i class="fas fa-phone"></i> +7 (8652) 52-44-44<br>+7 (495) 663-71-75</p>
+                    <p><i class="fas fa-fax"></i> Факс: +7 (8652) 52-88-88</p>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@stilsoft.ru">info@stilsoft.ru</a></p>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h3>Подписаться на новости</h3>
+                <form class="subscribe-form" id="subscribe-form">
+                    <input type="email" name="email" placeholder="Ваш email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-links">
+                    <a href="https://vk.com/stilsoft.life" target="_blank" title="ВКонтакте">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <%= new Date().getFullYear() %> "Стилсофт". Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Обработка формы подписки
+document.getElementById('subscribe-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const email = formData.get('email');
+    
+    try {
+        const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(result.message);
+            this.reset();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert('Произошла ошибка при подписке');
+    }
+});
+</script>

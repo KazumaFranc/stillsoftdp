@@ -1,0 +1,34 @@
+<% layout('layouts/main') -%>
+
+<section class="hero">
+    <div class="container">
+        <h1>Инновационные IT-решения для вашего бизнеса</h1>
+        <p>Мы разрабатываем программное обеспечение, которое помогает компаниям расти и развиваться</p>
+        <a href="/services" class="btn btn-primary">Узнать больше</a>
+    </div>
+</section>
+
+
+<section class="features">
+    <div class="container">
+        <h2>Наши преимущества</h2>
+        <div class="features-grid">
+            <% features.forEach(function(feature) { %>
+            <div class="feature-item">
+                <img src="<%= feature.image %>" alt="<%= feature.title %>">
+                <h3><%= feature.title %></h3>
+                <p><%= feature.description %></p>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Готовы начать работу с нами?</h2>
+        <p>Свяжитесь с нами для получения персонального предложения</p>
+        <a href="/contacts" class="btn btn-primary">Связаться с нами</a>
+    </div>
+</section>

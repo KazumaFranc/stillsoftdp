@@ -1,0 +1,237 @@
+<% layout('layouts/main') -%>
+
+<section class="services-hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/drons/16772629220.jpg')">
+    <div class="container">
+        <h1>Наши профессиональные IT-услуги</h1>
+        <p>Комплексные решения для безопасности и автоматизации вашего бизнеса</p>
+    </div>
+</section>
+
+<section class="services-list">
+    <div class="container">
+        <div class="service-category">
+            <h2>Основные направления</h2>
+            <div class="services-grid">
+                <% services.forEach(function(service) { %>
+                <div class="service-item" data-category="<%= service.id %>">
+                    <img src="<%= service.image %>" alt="<%= service.name %>">
+                    <h3><%= service.name %></h3>
+                    <p><%= service.description %></p>
+                    <button class="btn-calculate" data-service="<%= service.id %>">Рассчитать стоимость</button>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2>Калькулятор стоимости услуг</h2>
+            <div class="calculator-wrapper">
+                <form id="service-calculator">
+                    <div class="form-group">
+                        <label for="service-type">Тип услуги:</label>
+                        <select id="service-type" required="">
+                            <option value="">-- Выберите услугу --</option>
+                            <option value="ksbo">Комплексные системы безопасности</option>
+                            <option value="special">Специальная техника</option>
+                            <option value="ais">Автоматизированные системы</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ksbo-options">
+                        <label for="object-area">Площадь объекта (м²):</label>
+                        <input type="number" id="object-area" min="100" step="50" value="100">
+
+                        <label for="camera-count">Количество камер:</label>
+                        <input type="number" id="camera-count" min="1" value="1">
+
+                        <label for="security-level">Уровень защиты:</label>
+                        <select id="security-level">
+                            <option value="1">Стандарт</option>
+                            <option value="1.3">Повышенный</option>
+                            <option value="1.6">Максимальный</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group special-options" style="display:none;">
+                        <label for="perimeter-length">Длина периметра (м):</label>
+                        <input type="number" id="perimeter-length" min="100" step="50" value="100">
+
+                        <label for="tech-type">Тип техники:</label>
+                        <select id="tech-type">
+                            <option value="5000">Мобильные комплексы</option>
+                            <option value="8000">Стационарные системы</option>
+                            <option value="12000">Гибридные решения</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ais-options" style="display:none;">
+                        <label for="users-count">Количество пользователей:</label>
+                        <input type="number" id="users-count" min="1" value="1">
+
+                        <label for="system-complexity">Сложность системы:</label>
+                        <select id="system-complexity">
+                            <option value="500">Базовая</option>
+                            <option value="1000">Средняя</option>
+                            <option value="2000">Сложная</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeframe">Срок реализации (мес):</label>
+                        <input type="number" id="timeframe" min="1" max="24" value="3">
+                    </div>
+
+                    <div class="calculation-result">
+                        <h3>Примерная стоимость:</h3>
+                        <div class="result-sum" id="result-sum">0</div>
+                        <span class="currency">руб.</span>
+                        <div class="details" id="calculation-details"></div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="calculate-btn">Рассчитать</button>
+                    <button type="button" class="btn btn-secondary" id="reset-btn">Сбросить</button>
+                </form>
+
+                <div class="calculator-info">
+                    <h3>Как работает калькулятор?</h3>
+                    <p>Наш калькулятор помогает получить предварительную оценку стоимости услуг на основе базовых параметров.</p>
+                    <p>Для точного расчёта оставьте заявку, и наш специалист свяжется с вами в течение 1 часа.</p>
+
+                    <div class="features-list">
+                        <div class="feature">
+                            <span class="icon">✓</span>
+                            <span>Учитываем все нюансы вашего объекта</span>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">✓</span>
+                            <span>Предлагаем оптимальные решения</span>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">✓</span>
+                            <span>Гарантируем фиксированную цену</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="request-form">
+        <div class="container">
+            <h2>Оставить заявку на точный расчёт</h2>
+            <form id="service-request">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-message">Дополнительная информация:</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <input type="hidden" id="calculated-price" value="0">
+                <input type="hidden" id="selected-service" value="">
+                <button type="submit" class="btn btn-primary" id="send-request-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+<script>
+    
+document.getElementById('calculate-btn').addEventListener('click', async function() {
+    const serviceType = document.getElementById('service-type').value;
+    if (!serviceType) {
+        alert('Выберите тип услуги');
+        return;
+    }
+    
+    // Сбор параметров в зависимости от типа услуги
+    const parameters = {};
+    if (serviceType === 'ksbo') {
+        parameters.objectArea = parseInt(document.getElementById('object-area').value);
+        parameters.cameraCount = parseInt(document.getElementById('camera-count').value);
+        parameters.securityLevel = parseFloat(document.getElementById('security-level').value);
+    } else if (serviceType === 'special') {
+        parameters.perimeterLength = parseInt(document.getElementById('perimeter-length').value);
+        parameters.techType = parseInt(document.getElementById('tech-type').value);
+    } else if (serviceType === 'ais') {
+        parameters.usersCount = parseInt(document.getElementById('users-count').value);
+        parameters.systemComplexity = parseInt(document.getElementById('system-complexity').value);
+    }
+    
+    // Базовый параметр - срок реализации
+    parameters.timeframe = parseInt(document.getElementById('timeframe').value);
+    
+    try {
+        const response = await fetch('/services/calculate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ serviceType, parameters })
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            document.getElementById('result-sum').textContent = result.price.toLocaleString();
+            document.getElementById('calculation-details').textContent = result.details;
+            document.getElementById('calculated-price').value = result.price;
+            document.getElementById('selected-service').value = serviceType;
+        }
+    } catch (error) {
+        alert('Ошибка при расчете стоимости');
+    }
+});
+
+// Показать/скрыть нужные поля при изменении типа услуги
+document.getElementById('service-type').addEventListener('change', function() {
+    const serviceType = this.value;
+    document.querySelectorAll('.form-group.ksbo-options, .form-group.special-options, .form-group.ais-options')
+        .forEach(group => group.style.display = 'none');
+    
+    if (serviceType) {
+        document.querySelector(`.form-group.${serviceType}-options`).style.display = 'block';
+    }
+});
+
+// для отправки заявку на точный расчёт
+document.getElementById('service-request').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    try {
+        const response = await fetch('/services/sendcalculate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(result.message);
+            this.reset();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert(error);
+    }
+});
+</script>

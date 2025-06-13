@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    
+    
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/colorblind.css" id="colorblind-css" disabled>
+    
+    <!-- Дополнительные CSS для конкретных страниц -->
+    <% if (currentPage === 'services') { %>
+    <link rel="stylesheet" href="/css/services.css">
+    <% } %>
+    <% if (currentPage === 'about') { %>
+    <link rel="stylesheet" href="/css/styles.css">
+    <% } %>
+    <% if (currentPage === 'partner') { %>
+    <link rel="stylesheet" href="/css/stylrpartner.css">
+    <% } %>
+    <% if (currentPage === 'po-drones') { %>
+    <link rel="stylesheet" href="/css/solutions.css">
+    <% } %>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <%- include('../partials/header') %>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <%- body %>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+    
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+    <script src="/js/colorblind.js"></script>
+    
+    <!-- Дополнительные JS для конкретных страниц -->
+    <% if (currentPage === 'services') { %>
+    <script src="/js/services-calculator.js"></script>
+    <% } %>
+    <% if (currentPage === 'about') { %>
+    <script src="/js/scriptabout.js"></script>
+    <% } %>
+    <% if (currentPage === 'partner') { %>
+    <script src="/js/scriptpartner.js"></script>
+    <% } %>
+    <% if (currentPage === 'po-drones') { %>
+    <script src="/js/solutions.js"></script>
+    <% } %>
+</body>
+</html>
