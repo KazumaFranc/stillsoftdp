@@ -1,0 +1,75 @@
+/* Основные цвета для дальтоников */
+:root {
+    --primary-color: #3366CC; /* Синий вместо красного/зеленого */
+    --secondary-color: #FF9900; /* Оранжевый */
+    --accent-color: #9933CC; /* Фиолетовый */
+    --success-color: #009933; /* Зеленый с высокой контрастностью */
+    --error-color: #CC0000; /* Красный с высокой контрастностью */
+}
+
+/* Текстовые контрасты */
+body.colorblind-mode {
+    color: #333;
+    background-color: #fff;
+}
+
+/* Кнопки и интерактивные элементы */
+.colorblind-mode .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.colorblind-mode .btn-secondary {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+/* Графики и диаграммы */
+.colorblind-mode .chart-series-1 {
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+}
+
+.colorblind-mode .chart-series-2 {
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
+}
+
+.colorblind-mode .chart-series-3 {
+    fill: var(--accent-color);
+    stroke: var(--accent-color);
+}
+
+/* Формы и инпуты */
+.colorblind-mode input:focus,
+.colorblind-mode select:focus,
+.colorblind-mode textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(51, 102, 204, 0.3);
+}
+
+/* Навигация */
+.colorblind-mode .main-nav a:hover,
+.colorblind-mode .main-nav a:focus {
+    background-color: var(--secondary-color);
+}
+
+/* Сообщения */
+.colorblind-mode .alert-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.colorblind-mode .alert-error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* Дополнительные стили для лучшей различимости */
+.colorblind-mode a {
+    text-decoration: underline;
+}
+
+.colorblind-mode img:not(.no-colorblind-adjust) {
+    filter: brightness(1.1) contrast(1.1);
+}

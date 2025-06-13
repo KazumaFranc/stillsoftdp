@@ -1,0 +1,369 @@
+:root {
+    --primary-color: #2a5d8a;
+    --secondary-color: #3a7cb9;
+    --accent-color: #000000;
+    --dark-color: rgb(2, 45, 104);
+    --light-color: #ffffff;
+    --text-color: #717171;
+    --text-light: #5e5e5e;
+}
+
+/* Header */
+.header {
+    background-color: #2b67aa;
+    color: var(--light-text);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.partner-intro .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-content {
+    flex: 1;
+}
+
+.intro-content h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.intro-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.partner-intro:hover .intro-image img {
+    transform: scale(1.03);
+}
+
+.benefits-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.benefit-card p {
+    color: var(--text-light);
+}
+
+.partnership-types {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.partnership-tabs {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: var(--dark-color);
+}
+
+.tab-btn {
+    padding: 15px 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: white;
+    background-color: var(--accent-color);
+}
+
+.tab-content {
+    display: none;
+    padding: 40px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content-inner {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.tab-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tab-text {
+    flex: 1;
+}
+
+.tab-text h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.tab-text p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.tab-text ul {
+    margin-top: 25px;
+}
+
+.tab-text li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tab-text i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.partner-form-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.partner-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+    background-color: var(--dark-color);
+    color: #dee4e8;
+    padding: 60px 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    color: #e4eaf1;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 15px;
+}
+
+.footer-section ul li i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.subscribe-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-family: inherit;
+}
+
+.subscribe-form button {
+    background-color: var(--accent-color);
+    color: #0473df;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #0088ff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(191, 191, 191, 0.1);
+    border-radius: 50%;
+    color: #0473df;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(110, 110, 110, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .partner-intro .container {
+        flex-direction: column;
+    }
+
+    .intro-image {
+        order: -1;
+    }
+
+    .tab-content-inner {
+        flex-direction: column;
+    }
+
+    .tab-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .partner-form {
+        padding: 30px 20px;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        text-align: left;
+    }
+
+    .partners-slider {
+        gap: 20px;
+    }
+
+    .partner-logo {
+        flex: 0 0 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .partner-intro,
+    .benefits-section,
+    .partnership-types,
+    .partner-form-section,
+    .partners-section {
+        padding: 60px 0;
+    }
+
+    .tab-content {
+        padding: 30px 20px;
+    }
+
+    .partner-logo {
+        flex: 0 0 100px;
+        height: 60px;
+    }
+}

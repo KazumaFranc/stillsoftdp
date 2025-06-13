@@ -1,0 +1,278 @@
+/* Основные стили для страницы услуг */
+.services-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.services-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-item {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-item img {
+    max-width: 80px;
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2a5298;
+}
+
+.service-item p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-calculate {
+    background: #2a5298;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-calculate:hover {
+    background: #1e3c72;
+}
+
+/* Стили для калькулятора */
+.calculator-section {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+
+.calculator-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .calculator-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+#service-calculator {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.calculation-result {
+    background: #f0f7ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.calculation-result h3 {
+    margin-bottom: 10px;
+    color: #2a5298;
+}
+
+.result-sum {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3c72;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.currency {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.details {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background: #2a5298;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #1e3c72;
+}
+
+.btn-secondary {
+    background: white;
+    color: #2a5298;
+    border: 1px solid #2a5298;
+}
+
+.btn-secondary:hover {
+    background: #f0f7ff;
+}
+
+.calculator-info {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.calculator-info h3 {
+    color: #2a5298;
+    margin-bottom: 15px;
+}
+
+.calculator-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.features-list {
+    margin-top: 25px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.feature .icon {
+    background: #2a5298;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+/* Стили для формы заявки */
+.request-form {
+    padding: 60px 0;
+}
+
+.request-form h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2a5298;
+}
+
+#service-request {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Стили для уведомлений */
+.notification {
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    background: #4CAF50;
+}
+
+.notification.error {
+    background: #F44336;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateY(-20px); }
+}
